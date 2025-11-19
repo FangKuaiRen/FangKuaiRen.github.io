@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>方快仁的个人主页</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img.avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    p {
+      line-height: 1.6;
+      color: #555;
+      text-align: left;
+    }
+    .contact {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .contact a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .like-section {
+      margin-top: 40px;
+    }
+    .like-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .like-button:hover {
+      background-color: #e91e63;
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 头像 -->
+    <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.WK3bbAIy1atNP1LQA3ts1QAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"
+         alt="我的头像" class="avatar" />
+
+    <h1>方快仁</h1>
+    <p>你好！我是方快仁，一名热爱科技与学习的大学生，目前就读于物理系，正在学习德语和量子力学。</p>
+
+    <div class="contact">
+      <h2>联系方式</h2>
+      <ul>
+        <li>📧 邮箱: <a href="mailto:fkr2005@foxmail.com">fkr2005@foxmail.com</a></li>
+        <li>📍 位置: 武汉</li>
+      </ul>
+    </div>
+
+    <!-- Like按钮 -->
+    <div class="like-section">
+      <button class="like-button" id="like-btn">👍 Like <span id="like-count">0</span></button>
+    </div>
+  </div>
+
+  <script>
+    const likeBtn = document.getElementById('like-btn');
+    const likeCountSpan = document.getElementById('like-count');
+
+    // 页面加载时读取本地存储的点赞数
+    let likeCount = localStorage.getItem('likeCount') || 0;
+    likeCountSpan.textContent = likeCount;
+
+    likeBtn.addEventListener('click', () => {
+      likeCount++;
+      likeCountSpan.textContent = likeCount;
+      localStorage.setItem('likeCount', likeCount);
+    });
+  </script>
+</body>
+</html>
